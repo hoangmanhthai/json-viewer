@@ -1,15 +1,15 @@
-var Promise = require('promise');
+var Promise = require('es6-promise').Promise;
 var loadCss = require('../load-css');
 var themeDarkness = require('../theme-darkness');
 
 function loadRequiredCss(options) {
-  var theme = options.theme;
   var loaders = [];
   loaders.push(loadCss({
     path: "assets/viewer.css",
     checkClass: "json-viewer-css-check"
   }));
 
+  var theme = options.theme;
   if (theme && theme !== "default") {
     loaders.push(loadCss({
       path: "themes/" + themeDarkness(theme) + "/" + theme + ".css",
